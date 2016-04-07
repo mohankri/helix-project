@@ -67,10 +67,6 @@ public class CreateSetup {
       setup.addInstanceToCluster(clusterName, "localhost_12003");
       setup.addResourceToCluster(clusterName, "repository", 1, "MasterSlave");
       setup.rebalanceResource(clusterName, "repository", 3); 
-      /* New Code */
-    /*  final String clusterName = SetupCluster.DEFAULT_CLUSTER_NAME;
-      SetupCluster setup = new SetupCluster(zkAddress);
-      setup.setupCluster(12001); */
 
       // Set the configuration
       final String instanceName1 = "localhost_12001";
@@ -81,10 +77,10 @@ public class CreateSetup {
       addConfiguration(setup, baseDir, clusterName, instanceName3);
 
       // Start Controller
-
+/*
       final HelixManager manager =
           HelixControllerMain.startHelixController(zkAddress, clusterName, "controller",
-              HelixControllerMain.STANDALONE);
+              HelixControllerMain.STANDALONE); */
       Thread.sleep(5000);
       //printStatus(manager);
     } catch (Exception e) {

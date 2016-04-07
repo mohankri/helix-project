@@ -11,7 +11,7 @@
     <modules>
         <module>create-setup</module>
         <module>cluster-controller</module>
-        <module>cluster-participant</module>
+        <module>cluster-participant</module> 
   </modules>
 
     <build>
