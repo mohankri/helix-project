@@ -1,11 +1,11 @@
 package com.mohankri.rabbitmq;
 
-import com.linkedin.helix.manager.zk.ZkClient;
-import com.linkedin.helix.manager.zk.ZKHelixAdmin;
-import com.linkedin.helix.manager.zk.ZNRecordSerializer;
-import com.linkedin.helix.model.StateModelDefinition;
-import com.linkedin.helix.tools.StateModelConfigGenerator;
-import com.linkedin.helix.model.IdealState.IdealStateModeProperty;
+import org.apache.helix.manager.zk.ZkClient;
+import org.apache.helix.manager.zk.ZKHelixAdmin;
+import org.apache.helix.manager.zk.ZNRecordSerializer;
+import org.apache.helix.model.StateModelDefinition;
+import org.apache.helix.tools.StateModelConfigGenerator;
+import org.apache.helix.model.IdealState.IdealStateModeProperty;
 
 /**
  * Hello world!

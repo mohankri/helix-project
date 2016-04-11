@@ -1,8 +1,11 @@
 package com.mohankri.rabbitmq;
 
-import com.linkedin.helix.participant.statemachine.StateModelFactory;
+import org.apache.helix.HelixManager;
+import org.apache.helix.api.StateTransitionHandlerFactory;
+import org.apache.helix.api.id.PartitionId;
 
-public class ZkStateModelFactory extends StateModelFactory<ZkStateModel> {
+public class ZkStateModelFactory extends
+			StateTransitionHandlerFactory<ZkStateModel> {
         private final String _consumerId;
         private final String _rqServer;
 
@@ -14,10 +17,10 @@ public class ZkStateModelFactory extends StateModelFactory<ZkStateModel> {
 	}
 
         @Override
-        public ZkStateModel createNewStateModel(String partition)
+        public ZkStateModel createStateTransitionHandler(PartitionId partition)
         {
 	  System.out.println("Create StateModel ...\n");
-          ZkStateModel model = new ZkStateModel(_consumerId, partition, _rqServer);
+          ZkStateModel model = new ZkStateModel(_consumerId, partition.toString().split("_")[0], _rqServer);
           return model;
         }
 }

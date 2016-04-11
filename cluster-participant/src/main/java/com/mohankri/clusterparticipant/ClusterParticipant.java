@@ -50,7 +50,8 @@ public class ClusterParticipant {
       System.out.println("_zkAddr " + _zkAddr);
       StateMachineEngine stateMach = _manager.getStateMachineEngine();
       ClusterParticipantStateModelFactory modelFactory = new ClusterParticipantStateModelFactory(_manager);
-      stateMach.registerStateModelFactory(StateModelDefId.from(CreateSetup.DEFAULT_STATE_MODEL),
+      //stateMach.registerStateModelFactory(StateModelDefId.from(CreateSetup.DEFAULT_STATE_MODEL),
+      stateMach.registerStateModelFactory(StateModelDefId.from("MyStateModel"),
           modelFactory);
       _manager.connect();
       // _manager.addExternalViewChangeListener(replicator);

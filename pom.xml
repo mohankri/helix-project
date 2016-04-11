@@ -12,6 +12,7 @@
         <module>create-setup</module>
         <module>cluster-controller</module>
         <module>cluster-participant</module> 
+        <module>gorabbitmq</module> 
   </modules>
 
     <build>

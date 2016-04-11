@@ -2,14 +2,15 @@ package com.mohankri.rabbitmq;
 
 import java.util.List;
 
-import com.linkedin.helix.HelixManager;
-import com.linkedin.helix.HelixManagerFactory;
-import com.linkedin.helix.InstanceType;
-import com.linkedin.helix.manager.zk.ZkClient;
-import com.linkedin.helix.manager.zk.ZNRecordSerializer;
-import com.linkedin.helix.manager.zk.ZKHelixAdmin;
-import com.linkedin.helix.model.InstanceConfig;
-import com.linkedin.helix.participant.StateMachineEngine;
+import org.apache.helix.api.id.StateModelDefId;
+import org.apache.helix.HelixManager;
+import org.apache.helix.HelixManagerFactory;
+import org.apache.helix.InstanceType;
+import org.apache.helix.manager.zk.ZkClient;
+import org.apache.helix.manager.zk.ZNRecordSerializer;
+import org.apache.helix.manager.zk.ZKHelixAdmin;
+import org.apache.helix.model.InstanceConfig;
+import org.apache.helix.participant.StateMachineEngine;
 
 public class ZkConsumer 
 {
@@ -39,8 +40,7 @@ public class ZkConsumer
         StateMachineEngine stateMachine = _manager.getStateMachineEngine();
         ZkStateModelFactory modelFactory = 
                         new ZkStateModelFactory(_consumerId, _rqServer);
-        stateMachine.registerStateModelFactory(ZkSetup.DEFAULT_STATE_MODEL,
-                                                             modelFactory);
+        stateMachine.registerStateModelFactory(StateModelDefId.from(ZkSetup.DEFAULT_STATE_MODEL), modelFactory);
 
         _manager.connect();
         Thread.currentThread().join();

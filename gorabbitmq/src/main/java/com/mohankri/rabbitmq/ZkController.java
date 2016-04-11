@@ -1,7 +1,7 @@
 package com.mohankri.rabbitmq;
 
-import com.linkedin.helix.HelixManager;
-import com.linkedin.helix.controller.HelixControllerMain;
+import org.apache.helix.HelixManager;
+import org.apache.helix.controller.HelixControllerMain;
 
 public class ZkController
 {

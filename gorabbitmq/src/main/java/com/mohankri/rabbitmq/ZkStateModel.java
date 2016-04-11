@@ -2,14 +2,14 @@ package com.mohankri.rabbitmq;
 
 import org.apache.log4j.Logger;
 
-import com.linkedin.helix.NotificationContext;
-import com.linkedin.helix.model.Message;
-import com.linkedin.helix.participant.statemachine.StateModel;
-import com.linkedin.helix.participant.statemachine.StateModelInfo;
-import com.linkedin.helix.participant.statemachine.Transition;
+import org.apache.helix.NotificationContext;
+import org.apache.helix.model.Message;
+import org.apache.helix.api.TransitionHandler;
+import org.apache.helix.participant.statemachine.StateModelInfo;
+import org.apache.helix.participant.statemachine.Transition;
 
 @StateModelInfo(initialState = "OFFLINE", states = { "ONLINE", "ERROR" })
-public class ZkStateModel extends StateModel
+public class ZkStateModel extends TransitionHandler
 {
   private static Logger LOG = Logger.getLogger(ZkStateModel.class);
 
